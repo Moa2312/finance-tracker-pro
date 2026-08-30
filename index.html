@@ -9,16 +9,15 @@
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
     
-    <title>VIP Financial Tracker - PRO</title>
-    <style>
+<title>VIP Financial Tracker - PRO | Web App</title>    <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            /* VIP Dark Mode Colors */
-            --bg-color: #121212;
-            --card-bg: #1E1E1E;
-            --card-border: #2C2C2C;
-            --primary-accent: #E2B93B; /* Executive Gold */
+/* VIP Dark Mode Colors */
+    --bg-color: #141414;
+    --card-bg: #1c1c1c;
+    --card-border: #2C2C2C;            
+            --primary-accent: #E3BA3C; /* Executive Gold */
             --income-green: #00E676;
             --expense-red: #FF5252;
             --text-main: #FFFFFF;
@@ -30,7 +29,7 @@
 
         body {
             background-color: var(--bg-color); color: var(--text-main);
-            font-family: 'Inter', sans-serif; margin: 0; padding: 20px 15px;
+            font-family: 'Inter', sans-serif; margin: 0; padding: 20px 16px;
             display: flex; justify-content: center; min-height: 100vh;
         }
 
@@ -40,19 +39,19 @@
             background-color: var(--bg-color); z-index: 9999;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
         }
-        .overlay-screen h2 { color: var(--primary-accent); font-size: 28px; margin-bottom: 10px; font-weight: 700;}
-        .overlay-screen p { color: var(--text-light); margin-bottom: 30px; font-size: 14px; }
+        .overlay-screen h2 { color: var(--primary-accent); font-size: 26px; margin-bottom: 10px; font-weight: 700;}
+        .overlay-screen p { color: var(--text-light); margin-bottom: 30px; font-size: 15px; }
         
         .pin-input-container { display: flex; gap: 10px; margin-bottom: 20px; }
-        .pin-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--primary-accent); }
+        .pin-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--primary-accent); }
         .pin-dot.filled { background-color: var(--primary-accent); }
         
         .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 250px; }
         .key-btn { width: 60px; height: 60px; border-radius: 50%; border: 1px solid var(--card-border); background-color: var(--card-bg); color: var(--text-main); font-size: 20px; cursor: pointer; font-family: 'Inter', sans-serif; transition: 0.2s;}
         .key-btn:active { background-color: #333; }
         
-        .text-btn { margin-top: 25px; font-size: 14px; cursor: pointer; text-decoration: underline; color: var(--text-light); }
-        .danger-link { color: var(--expense-red); margin-top: 15px; font-size: 12px; font-weight: 600; }
+        .text-btn { margin-top: 24px; font-size: 14px; cursor: pointer; text-decoration: underline; color: var(--text-light); }
+        .danger-link { color: var(--expense-red); margin-top: 15px; font-size: 13px; font-weight: 600; }
 
         .security-box { display: none; flex-direction: column; width: 100%; max-width: 300px; gap: 15px; }
         .security-box input { padding: 15px; border: 1px solid var(--card-border); background-color: var(--input-bg); color: white; border-radius: 8px; text-align: center; font-size: 14px; font-family: 'Inter', sans-serif;}
@@ -61,8 +60,8 @@
         /* --- تصميم الأداة --- */
         .dashboard { background-color: var(--card-bg); width: 100%; max-width: 700px; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); display: none; border: 1px solid var(--card-border);}
         
-        .header { text-align: center; margin-bottom: 30px; }
-        .header h1 { color: var(--text-main); font-size: 30px; margin: 0; font-weight: 700; letter-spacing: -0.5px;}
+        .header { text-align: center; margin-bottom: 32px; }
+        .header h1 { color: var(--text-main); font-size: 28px; margin: 0; font-weight: 700; letter-spacing: -0.5px;}
         
         .settings-row { display: flex; justify-content: flex-end; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 25px; border-bottom: 1px solid var(--card-border); padding-bottom: 20px;}
         .settings-row button, .settings-row select { background-color: transparent; border: 1px solid var(--card-border); padding: 8px 15px; font-size: 12px; border-radius: 6px; cursor: pointer; color: var(--text-light); font-family: 'Inter', sans-serif; font-weight: 600; transition: 0.2s; outline: none;}
@@ -71,14 +70,14 @@
 
         /* بطاقات الحسابات */
         .balance-card { background: linear-gradient(135deg, #232526, #414345); border: 1px solid #444; color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 20px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);}
-        .balance-title { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-accent); margin-bottom: 5px; font-weight: 600;}
+        .balance-title { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-accent); margin-bottom: 6px; font-weight: 600;}
         .balance-amount { font-size: 44px; font-weight: 700; margin: 0; letter-spacing: -1px;}
 
         .summary-row { display: flex; gap: 15px; margin-bottom: 30px; }
         .summary-box { flex: 1; background-color: var(--input-bg); padding: 20px; border-radius: 10px; border: 1px solid var(--card-border); text-align: center;}
         .summary-box.income .amount { color: var(--income-green); }
         .summary-box.expense .amount { color: var(--expense-red); }
-        .summary-box .title { font-size: 11px; text-transform: uppercase; color: var(--text-light); margin-bottom: 5px; font-weight: 600; letter-spacing: 1px;}
+        .summary-box .title { font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-bottom: 5px; font-weight: 600; letter-spacing: 1px;}
         .summary-box .amount { font-size: 22px; font-weight: 700; }
 
         /* الإدخال */
@@ -152,8 +151,8 @@
 
     <div class="dashboard" id="main-dashboard">
         <div class="header">
-            <h1>Executive Wealth</h1>
-            <p style="color: var(--text-light); font-size: 13px; margin-top: 5px;">Track your net worth & cash flow</p>
+            <h1>Wealth Tracker</h1>
+            <p style="color: var(--text-light); font-size: 14px; margin-top: 5px;">Track your net worth & cash flow</p>
         </div>
         
         <div class="settings-row">
@@ -164,40 +163,40 @@
             </select>
             <button onclick="exportCSV()">📥 Export CSV</button>
             <button onclick="openLockSettings()" id="lock-toggle-btn">🔒 Setup PIN</button>
-            <button onclick="hardReset()" style="color: var(--expense-red); border-color: #4A1A1A;">⚠️ Erase Data</button>
+            <button onclick="hardReset()" style="color: var(--expense-red); border-color: #4A1A1A;">⚠️ Clear Data</button>
         </div>
         
         <div class="balance-card">
-            <div class="balance-title">Net Balance</div>
+            <div class="balance-title">Total Balance</div>
             <div class="balance-amount" id="total-balance">$0.00</div>
         </div>
 
         <div class="summary-row">
             <div class="summary-box income">
-                <div class="title">Income</div>
+                <div class="title">Total Income</div>
                 <div class="amount" id="total-income">+$0.00</div>
             </div>
             <div class="summary-box expense">
-                <div class="title">Expenses</div>
+                <div class="title">Total Expenses</div>
                 <div class="amount" id="total-expense">-$0.00</div>
             </div>
         </div>
 
         <div class="controls">
-            <input type="date" id="t-date" title="Select Transaction Date">
-            <input type="text" id="t-desc" placeholder="Desc (e.g., Salary, Rent)">
+            <input type="date" id="t-date" title="Choose Date">
+            <input type="text" id="t-desc" placeholder="Description (e.g., Salary, Rent)">
             <input type="number" id="t-amount" placeholder="Amount">
             <select id="t-type">
-                <option value="income">Income (+)</option>
-                <option value="expense">Expense (-)</option>
+                <option value="income">Add Income</option>
+                <option value="expense">Add Expense</option>
             </select>
-            <button class="add-btn" onclick="addTransaction()">Add</button>
+            <button class="add-btn" onclick="addTransaction()">Add Record</button>
         </div>
         
         <ul class="transaction-list" id="transaction-list"></ul>
 
         <div class="journal-container">
-            <h3>Financial Goals</h3>
+            <h3>Financial Notes</h3>
             <textarea id="finance-notes" class="journal-area" placeholder="Write down your savings targets, investment ideas, or debts... (Auto-saves)"></textarea>
         </div>
 
@@ -374,3 +373,4 @@
     </script>
 </body>
 </html>
+<!-- Update 2 -->
